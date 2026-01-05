@@ -81,3 +81,4 @@ sample/
 ## Version
 
 PDF Converter Pro v2.0 - Flask Edition
+
