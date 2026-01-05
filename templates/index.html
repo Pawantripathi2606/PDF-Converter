@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Converter Pro - Convert, Split & Merge PDFs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📄 PDF Converter Pro</h1>
+            <p class="subtitle">Convert, Split & Merge PDFs with Ease</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('convert')">
+                <span class="icon">🖼️</span>
+                Convert to PDF
+            </button>
+            <button class="tab-button" onclick="showTab('split')">
+                <span class="icon">✂️</span>
+                Split PDF
+            </button>
+            <button class="tab-button" onclick="showTab('merge')">
+                <span class="icon">🔗</span>
+                Merge PDFs
+            </button>
+        </div>
+
+        <!-- Convert Tab -->
+        <div id="convert" class="tab-content active">
+            <div class="card">
+                <h2>Convert Image to PDF</h2>
+                <p class="description">Upload a JPG or PNG image and convert it to PDF format</p>
+
+                <form id="convertForm" enctype="multipart/form-data">
+                    <div class="upload-area" id="convertUpload">
+                        <div class="upload-icon">📁</div>
+                        <p>Drag & drop your image here or click to browse</p>
+                        <input type="file" id="imageFile" name="image" accept=".jpg,.jpeg,.png" required>
+                        <button type="button" class="browse-btn" onclick="document.getElementById('imageFile').click()">
+                            Browse Files
+                        </button>
+                    </div>
+                    <div id="convertFileName" class="file-name"></div>
+                    <button type="submit" class="submit-btn">Convert to PDF</button>
+                </form>
+
+                <div id="convertResult" class="result"></div>
+            </div>
+        </div>
+
+        <!-- Split Tab -->
+        <div id="split" class="tab-content">
+            <div class="card">
+                <h2>Split PDF into Pages</h2>
+                <p class="description">Upload a PDF file and split it into individual pages</p>
+
+                <form id="splitForm" enctype="multipart/form-data">
+                    <div class="upload-area" id="splitUpload">
+                        <div class="upload-icon">📁</div>
+                        <p>Drag & drop your PDF here or click to browse</p>
+                        <input type="file" id="pdfFile" name="pdf" accept=".pdf" required>
+                        <button type="button" class="browse-btn" onclick="document.getElementById('pdfFile').click()">
+                            Browse Files
+                        </button>
+                    </div>
+                    <div id="splitFileName" class="file-name"></div>
+                    <button type="submit" class="submit-btn">Split PDF</button>
+                </form>
+
+                <div id="splitResult" class="result"></div>
+            </div>
+        </div>
+
+        <!-- Merge Tab -->
+        <div id="merge" class="tab-content">
+            <div class="card">
+                <h2>Merge Two PDFs</h2>
+                <p class="description">Upload two PDF files and merge them into one</p>
+
+                <form id="mergeForm" enctype="multipart/form-data">
+                    <div class="upload-area" id="mergeUpload1">
+                        <div class="upload-icon">📄</div>
+                        <p>First PDF - Drag & drop or click to browse</p>
+                        <input type="file" id="pdf1File" name="pdf1" accept=".pdf" required>
+                        <button type="button" class="browse-btn" onclick="document.getElementById('pdf1File').click()">
+                            Browse Files
+                        </button>
+                    </div>
+                    <div id="merge1FileName" class="file-name"></div>
+
+                    <div class="upload-area" id="mergeUpload2" style="margin-top: 20px;">
+                        <div class="upload-icon">📄</div>
+                        <p>Second PDF - Drag & drop or click to browse</p>
+                        <input type="file" id="pdf2File" name="pdf2" accept=".pdf" required>
+                        <button type="button" class="browse-btn" onclick="document.getElementById('pdf2File').click()">
+                            Browse Files
+                        </button>
+                    </div>
+                    <div id="merge2FileName" class="file-name"></div>
+
+                    <button type="submit" class="submit-btn">Merge PDFs</button>
+                </form>
+
+                <div id="mergeResult" class="result"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>PDF Converter Pro v2.0</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
